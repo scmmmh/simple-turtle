@@ -4,12 +4,30 @@
     import CommandHistory from './CommandHistory.svelte';
     import { commandHistory, activeCommand } from '../store';
 
-    let command = 'Turn Left 90';
+    let command = '';
     let historyList = null as Element;
+
+    ///*
+    parseCommand('move forward 10');
+    parseCommand('turn left 90');
+    parseCommand('move forward 10');
+    parseCommand('turn left 90');
+    parseCommand('move forward 10');
+    parseCommand('turn left 90');
+    parseCommand('move forward 10');
+    parseCommand('move forward 10');
+    parseCommand('turn right 90');
+    parseCommand('move forward 10');
+    parseCommand('turn right 90');
+    parseCommand('move forward 10');
+    parseCommand('turn right 90');
+    parseCommand('move forward 10');
+    //*/
 
     function runCommand(ev: Event) {
         ev.preventDefault();
         parseCommand(command.trim());
+        command = '';
     }
 
     function parseCommand(cmdStr: string) {
